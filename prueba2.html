@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 2 - Frecuencia</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="contenedor">
+    <div class="card">
+
+        <h1>📊 Prueba No. 2</h1>
+
+        <p class="descripcion">
+            Prueba de frecuencia de los números pseudoaleatorios generados.
+        </p>
+
+        <div class="pruebas">
+            <h2>3️⃣ Prueba de Frecuencia</h2>
+
+            <p id="resultadoFrecuencia">
+                Presiona el botón para realizar la prueba de frecuencia.
+            </p>
+
+            <div id="numerosFrecuencia" class="contenedor-numeros"></div>
+        </div>
+
+        <div class="botones">
+            <button onclick="realizarPruebaFrecuencia()">
+                ▶ Realizar prueba de frecuencia
+            </button>
+
+            <button
+                id="btnJuego"
+                onclick="window.location.href='juego.html'"
+                style="display:none;"
+            >
+                🎲 Ir al juego de volados
+            </button>
+        </div>
+
+        <div class="pruebas">
+            <h2>ℹ Explicación</h2>
+
+            <p>
+                Esta prueba cuenta cuántos números generan Cara y cuántos generan Cruz.
+                Si la diferencia entre ambos resultados es pequeña, se considera que los
+                números están distribuidos uniformemente.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

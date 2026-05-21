@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juego de Volados</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <div class="card">
+
+            <!-- TÍTULO -->
+            <h1>🎲 Juego de Volados</h1>
+
+            <p class="descripcion">
+                Simulación de apuestas utilizando números pseudoaleatorios
+            </p>
+
+
+            <!-- CONFIGURACIÓN INICIAL -->
+            <div class="configuracion" id="configuracionInicial">
+
+                <div class="campo">
+
+                    <label>💰 Dinero inicial</label>
+
+                    <input
+                        type="number"
+                        id="dineroInicial"
+                        value="100"
+                    >
+
+                </div>
+
+                <div class="campo">
+
+                    <label>🎯 Meta a alcanzar</label>
+
+                    <input
+                        type="number"
+                        id="meta"
+                        value="200"
+                    >
+
+                </div>
+
+                <div class="campo boton-campo">
+
+                    <label class="invisible">Botón</label>
+
+                    <button onclick="iniciarJuego()">
+                        ▶ Iniciar juego
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES DEL JUEGO -->
+            <div
+                class="configuracion juego-activo"
+                id="controlesJuego"
+            >
+
+                <div class="campo">
+
+                    <label>💵 Apuesta actual</label>
+
+                    <input
+                        type="number"
+                        id="apuestaInicial"
+                        value="10"
+                    >
+
+                </div>
+
+                <div class="campo">
+
+                    <label>🪙 Elegir lado</label>
+
+                    <select id="ladoElegido">
+
+                        <option value="Cara">
+                            Cara
+                        </option>
+
+                        <option value="Cruz">
+                            Cruz
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- MONEDA -->
+            <div class="contenedor-moneda">
+
+                <div class="moneda" id="moneda">
+
+                    <!-- CARA -->
+                    <div class="cara frente">
+
+                        <img
+                            src="img/cara.png"
+                            alt="Cara"
+                        >
+
+                    </div>
+
+                    <!-- CRUZ -->
+                    <div class="cara atras">
+
+                        <img
+                            src="img/cruz.png"
+                            alt="Cruz"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTONES -->
+           <div class="botones-juego">
+
+                <button onclick="jugarVolado()" id="btnVolado" disabled class="btn-lanzar">
+                    Lanzar volado
+                </button>
+
+                <button onclick="reiniciarJuego()" id="btnReiniciar" class="btn-reiniciar-juego">
+                    Reiniciar juego
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADO -->
+            <div
+                class="resultado"
+                id="resultado"
+            >
+                Configura el juego para comenzar.
+            </div>
+
+
+            <!-- ESTADÍSTICAS -->
+            <div class="estadisticas">
+
+                <div class="box">
+
+                    <h3>🎮 Jugadas</h3>
+
+                    <span id="jugadas">
+                        0
+                    </span>
+
+                </div>
+
+                <div class="box">
+
+                    <h3>✅ Victorias</h3>
+
+                    <span id="victorias">
+                        0
+                    </span>
+
+                </div>
+
+                <div class="box">
+
+                    <h3>❌ Derrotas</h3>
+
+                    <span id="derrotas">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DATOS -->
+            <div class="datos">
+
+                <p>
+                    💰 Dinero actual:
+                    $<span id="dineroActual">0</span>
+                </p>
+
+                <p>
+                    🎯 Meta:
+                    $<span id="metaActual">0</span>
+                </p>
+
+                <p>
+                    💵 Apuesta actual:
+                    $<span id="apuestaActual">0</span>
+                </p>
+
+                <p>
+                    🪙 Lado elegido:
+                    <span id="ladoActual">---</span>
+                </p>
+
+            </div>
+
+
+            <!-- HISTORIAL -->
+            <div class="pruebas">
+
+                <h2>🧪 Experimentos guardados</h2>
+
+                <div id="historialExperimentos">
+                    Aún no hay experimentos registrados.
+                </div>
+
+                <button
+                    onclick="reiniciarExperimentos()"
+                    class="btn-reiniciar"
+                >
+                    🗑 Reiniciar experimentos
+                </button>
+
+            </div>
+
+
+            <!-- CONCLUSIÓN -->
+            <div class="pruebas">
+
+                <h2>📝 Conclusión</h2>
+
+                <p id="conclusion">
+                    La conclusión se mostrará al finalizar el juego.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JS GENERAL -->
+    <script src="script.js"></script>
+
+</body>
+</html>

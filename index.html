@@ -1,112 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
-    <title>Simulación - Juego de Volados</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prueba 1 - Promedios</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-<div class="contenedor">
-    <div class="card">
+    <div class="contenedor">
 
-        <h1>🎲 Juego de Volados</h1>
+        <div class="card">
 
-        <p class="descripcion">
-            Simulación con números pseudoaleatorios, pruebas estadísticas y sistema de apuestas.
-        </p>
+            <!-- TÍTULO -->
+            <h1>📊 Prueba No. 1</h1>
 
-        <div class="configuracion" id="configuracionInicial">
+            <p class="descripcion">
+                <div class="configuracion-generador">
 
     <div class="campo">
-        <label>💰 Dinero inicial</label>
-        <input type="number" id="dineroInicial" value="100">
+
+        <label>Semilla</label>
+
+        <input
+            type="number"
+            id="semilla"
+            value="17"
+        >
+
     </div>
 
     <div class="campo">
-        <label>🎯 Meta a alcanzar</label>
-        <input type="number" id="meta" value="200">
+
+        <label>Valor de a</label>
+
+        <input
+            type="number"
+            id="valorA"
+            value="101"
+        >
+
     </div>
 
-    <div class="campo boton-campo">
-        <label class="invisible">boton</label>
-        <button onclick="iniciarJuego()">Iniciar juego</button>
+    <div class="campo">
+
+        <label>Valor de c</label>
+
+        <input
+            type="number"
+            id="valorC"
+            value="221"
+        >
+
+    </div>
+
+    <div class="campo">
+
+        <label>Valor de m</label>
+
+        <input
+            type="number"
+            id="valorM"
+            value="1000"
+        >
+
     </div>
 
 </div>
+                Prueba de promedios de números pseudoaleatorios
+            </p>
 
-<div class="configuracion juego-activo" id="controlesJuego">
 
-    <div class="campo">
-        <label>💵 Apuesta actual</label>
-        <input type="number" id="apuestaInicial" value="10">
-    </div>
+            <!-- MÓDULO 1 -->
+            <div class="pruebas">
 
-    <div class="campo">
-        <label>🪙 Elegir lado</label>
-        <select id="ladoElegido">
-            <option value="Cara">Cara</option>
-            <option value="Cruz">Cruz</option>
-        </select>
-    </div>
+                <h2>1️⃣ Generador Congruencial Lineal</h2>
 
-</div>
+                <p>
+                    El sistema genera números pseudoaleatorios utilizando
+                    un generador congruencial lineal.
+                </p>
 
-        <div class="contenedor-moneda">
-            <div class="moneda" id="moneda">
+            </div>
 
-                <div class="cara frente">
-                    <img src="img/cara.png" alt="Cara">
+
+            <!-- MÓDULO 2 -->
+            <div class="pruebas">
+
+                <h2>2️⃣ Prueba de Promedios</h2>
+
+                <p id="resultadoPrueba">
+                    Presiona el botón para realizar la prueba.
+                </p>
+
+                <!-- NÚMEROS GENERADOS -->
+                <div id="numerosGenerados" class="contenedor-numeros">
+
                 </div>
 
-                <div class="cara atras">
-                    <img src="img/cruz.png" alt="Cruz">
-                </div>
-
-            </div>
-        </div>
-
-        <button onclick="jugarVolado()" id="btnVolado" disabled>Lanzar volado</button>
-
-        <div class="resultado" id="resultado">
-            Configura el juego para comenzar.
-        </div>
-
-        <div class="estadisticas">
-
-            <div class="box">
-                <h3>🎮 Jugadas</h3>
-                <span id="jugadas">0</span>
             </div>
 
-            <div class="box">
-                <h3>✅ Victorias</h3>
-                <span id="victorias">0</span>
+
+            <!-- BOTONES -->
+            <div class="botones">
+
+                <button onclick="realizarPruebaPromedios()">
+                    ▶ Realizar prueba
+                </button>
+
+                <button
+                    id="btnSiguiente"
+                    onclick="location.href='prueba2.html'"
+                    style="display:none;"
+                >
+                    ➡ Ir a la Prueba No. 2
+                </button>
+
             </div>
 
-            <div class="box">
-                <h3>❌ Derrotas</h3>
-                <span id="derrotas">0</span>
+
+            <!-- EXPLICACIÓN -->
+            <div class="pruebas">
+
+                <h2>ℹ Explicación</h2>
+
+                <p>
+                    La prueba de promedios verifica que el promedio
+                    de los números pseudoaleatorios sea cercano a 0.5,
+                    indicando una distribución uniforme.
+                </p>
+
             </div>
 
-        </div>
-
-        <div class="datos">
-            <p>💰 Dinero actual: $<span id="dineroActual">0</span></p>
-            <p>🎯 Meta: $<span id="metaActual">0</span></p>
-            <p>💵 Apuesta actual: $<span id="apuestaActual">0</span></p>
-            <p>🪙 Lado elegido: <span id="ladoActual">---</span></p>
-        </div>
-
-        <div class="pruebas">
-            <h2>📊 Pruebas de números pseudoaleatorios</h2>
-            <p id="pruebaPromedios">Prueba de promedios: ---</p>
-            <p id="pruebaFrecuencia">Prueba de frecuencia: ---</p>
         </div>
 
     </div>
-</div>
 
-<script src="script.js"></script>
+    <!-- JS GENERAL -->
+    <script src="script.js"></script>
+
 </body>
 </html>
